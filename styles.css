@@ -273,7 +273,8 @@ iframe
 
 .contact-form-container h2 {
     text-align: center;
-    font-size: 2rem;
+    padding-top:4rem;
+    font-size: 1.7rem;
 }
 
 .contact-form label {
@@ -312,5 +313,108 @@ iframe
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+.quiz-box
+{
+    background-color: #fff;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin-bottom:1.5rem;
+}
+
+.quiz-box h1
+{
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(45deg,transparent,#071952,transparent);
+    color:#fff;
+    border-radius: 5px;
+}
+
+.quiz-box h2
+{
+    font-size: 26px;
+}
+
+.option-list .option
+{
+    width: 95%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #071952;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.option-list .option:hover
+{
+    background: #071952;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color:#E8FFCE;
+    transform: translateY(-3px);
+}
+
+.footer-box
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top span
+{
+    font-size:16px;
+}
+
+.bottom
+{
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+}
+
+.bottom button
+{
+    padding:0.4rem 1rem;
+    width: 50%;
+    margin:0 10px;
+    border-radius:30px;
+    border-style: none;
+    height: 40px;
+}
+
+.back-btn
+{
+    background-color: #0056b3;
+    color: #E8FFCE;
+    cursor: pointer;
+}
+
+.back-btn:hover
+{
+    background: #071952;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color:#fff;
+    transform: translateY(-3px);
+}
+
+.next-btn
+{
+    background-color: #09ad04;
+    color: white;
+    cursor: pointer;
+}
+
+.next-btn:hover
+{
+    background: #015f20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color:#fff;
+    transform: translateY(-3px);
 }
 

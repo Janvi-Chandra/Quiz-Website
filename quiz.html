@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="./styles.css" rel="stylesheet">
+    <title>QuizMaster</title>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video">
+            <source src="./Assets/Light BG.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="quiz-container">
+        <!--<div class="quiz-header">
+            <span class="header-score">Score 0/5</span>
+        </div>-->
+
+        <div class="quiz-box">
+            <h1>QuizMaster</h1>
+            <h2 class="question">In the play "Romeo and Juliet," what is Juliet's last name?</h2>
+            <div class="option-list">
+                <div class="option">
+                    <span>a) Capulet</span>
+                </div>
+                <div class="option">
+                    <span>b) Montague</span>
+                </div>
+                <div class="option">
+                    <span>c) Verona</span>
+                </div>
+                <div class="option">
+                    <span>d) Shakespeare</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-footer">
+            <div class="footer-box">
+                <div class="top">
+                    <!--<span class="total-questions">Score -> 0/5</sp>-->
+                    <span class="current-question">Question 1/5</span>
+                </div>
+                <div class="bottom">
+                    <button class="back-btn" disabled>Back</button>
+                    <button class="next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                &copy; All rights reserved
+            </div>
+            <div class="footer-right">
+                QuizMaster
+            </div>
+        </div>
+    </footer> 
+    
+    <script src="./questions.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
