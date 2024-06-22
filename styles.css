@@ -1,0 +1,16 @@
+*
+{
+    font-family:'Poppins',sans-serif;
+}
+
+:root {
+    --bg-color: #1E0342;
+    --main-color: #E1F7F5;
+    --text-color: #9AC8CD;
+    --border: 0.125rem solid #E1F7F5;
+    --box-shadow: 0 0 0.8rem rgba(233, 241, 243, 0.02);
+    --button-bg: #E1F7F5;
+    --button-text: #e1fdff;
+    --button-hover-bg: #9AC8CD;
+    --button-hover-text: #FFFFFF;
+}
