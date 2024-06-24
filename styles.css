@@ -418,3 +418,107 @@ iframe
     transform: translateY(-3px);
 }
 
+#result-box-hidden {
+    display: none;
+}
+
+.result-box {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: #fff;
+    border: var(--border);
+    border-radius: 7px;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.result-box h2 {
+    font-size: 45px;
+    margin-bottom: 1rem;
+}
+
+.percentage-container {
+    width: 300px;
+    background-color: var(--button-hover-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 2rem;
+    padding: 1.3rem;
+    border-radius:10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.circular-progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background:white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circular-progress .progress-value {
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    color: var(--button-text);
+}
+
+.score-text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.buttons button {
+    width: 45%;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--button-text);
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.buttons button:hover {
+    background: var(--text-color);
+    color: var(--second-text-color);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999; 
+}
+
+span .progress-value
+{
+    color: var(--text-color)
+}

@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.querySelector('.back-btn');
     const nextBtn = document.querySelector('.next-btn');
     const currentQuestionElement = document.querySelector('.current-question');
+    const resultBox = document.getElementById('result-box-hidden');
 
     if (questionElement && optionListElement && backBtn && nextBtn && currentQuestionElement) {
         function showQuestion(index) {
@@ -130,13 +131,47 @@ document.addEventListener('DOMContentLoaded', () => {
             return score;
         }
     
-        function showResult() {
+        /*function showResult() {
             const score = calculateScore();
             document.body.innerHTML = `
+                <body>
                 <div class="quiz-container">
-                    <h1>Your Score: ${score}/${questions.length}</h1>
+                    <div class="result-box">
+                        <h2>Quiz Result!</h2>
+                        <div class="percentage-container">
+                            <div class="circular-progress">
+                                <span class="progress-value">0%</span>
+                            </div>
+                            <span class="score-text">Your Score: ${score}/${questions.length}</span>
+                        </div>
+                        <div class="buttons">
+                            <button class="try-again">Try Again</button>
+                            <button class="goHome-btn">Go to Home</button>
+                        </div>
+                    </div>
                 </div>
+                </body>
             `;
+        }*/
+
+        function showResult() {
+            const score = calculateScore();
+            const percentage = Math.round((score / questions.length) * 100);
+            resultBox.querySelector('.progress-value').textContent = `${percentage}%`;
+            resultBox.querySelector('.score-text').textContent = `Your Score ${score}/${questions.length}`;
+            
+            const circularProgress = resultBox.querySelector('.circular-progress');
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress++;
+                circularProgress.style.background =  `conic-gradient(#97FEED ${progress * 3.6}deg, #fff ${progress * 3.6}deg)`;
+                if (progress >= percentage) {
+                    clearInterval(interval);
+                }
+            }, 20);
+    
+            resultBox.removeAttribute('id');
+            overlay.style.display = 'block'; // Show overlay
         }
     
         backBtn.addEventListener('click', () => {
