@@ -1,96 +1,93 @@
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('convert-btn');
     const contactModal = document.getElementById('contactModal');
+    
+    if (startButton && contactModal) {
+        startButton.addEventListener('click', () => {
+            contactModal.style.display = 'flex';
+            contactModal.style.justifyContent = 'center';
+            contactModal.style.alignItems = 'center';
+        });
+    
+        window.addEventListener('click', (event) => {
+            if (event.target === contactModal) {
+                contactModal.style.display = 'none';
+            }
+        });
+    }
 
-    startButton.addEventListener('click',()=>{
-        contactModal.style.display = 'flex';
-        contactModal.style.justifyContent = 'center';
-        contactModal.style.alignItems = 'center';
-    });
-
-    window.addEventListener('click',(event)=>{
-        if(event.target===contactModal)
-        {
-            contactModal.style.display = 'none';
-        }
-    })
-
-    function validateForm()
-    {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const number = document.getElementById('phone').value;
-
-        if(name==='' || email==='' || number==='')
-        {
+    function validateForm() {
+        const name = document.getElementById('name')?.value;
+        const email = document.getElementById('email')?.value;
+        const number = document.getElementById('phone')?.value;
+    
+        if (name === '' || email === '' || number === '') {
             alert("Please fill all the fields");
             return false;
-        }
-        else if(number.length!==10)
-        {
+        } else if (number.length !== 10) {
             alert("Please enter a valid phone number");
             return false;
-        }
-        else if(name.length<3)
-        {
+        } else if (name.length < 3) {
             alert("Please enter a valid name");
             return false;
         }
-
+    
         return true;
     }
 
     const submit = document.getElementById('submit');
-    submit.addEventListener('click',(event)=>{
-        if(!validateForm()){
-            event.preventDefault();
-        }
-        else
-        {
-            window.location.href = './quiz.html';
-        }
-    });
-        const questions = [
-            {
-                number: 1,
-                question: "In the play 'Romeo and Juliet,' what is Juliet's last name?",
-                answer: "a) Capulet",
-                options: ["a) Capulet", "b) Montague", "c) Verona", "d) Shakespeare"],
-            },
-            {
-                number: 2,
-                question: "What is the only planet in our solar system that rotates on its side?",
-                answer: "c) Uranus",
-                options: ['a) Mars', 'b) Venus', 'c) Uranus', 'd) Neptune'],
-            },
-            {
-                number: 3,
-                question: "Which artist holds the record for the most Grammy Awards won in a single night?",
-                answer: "d) Michael Jackson",
-                options: ['a) Beyoncé', 'b) Adele', 'c) Taylor Swift', 'd) Michael Jackson'],
-            },
-            {
-                number: 4,
-                question: "Who was the first female prime minister of the United Kingdom?",
-                answer: "a) Margaret Thatcher",
-                options: ['a) Margaret Thatcher', 'b) Theresa May', 'c) Angela Merkel', 'd) Queen Elizabeth II'],
-            },
-            {
-                number: 5,
-                question: "What was the first ever commercially available computer processor?",
-                answer: "a) Intel 4004",
-                options: ['a) Intel 4004', 'b) AMD Ryzen', 'c) Apple M1', 'd) IBM POWER9'],
+    if (submit) {
+        submit.addEventListener('click', (event) => {
+            if (!validateForm()) {
+                event.preventDefault();
+            } else {
+                window.location.href = './quiz.html';
             }
-        ];
+        });
+    }
     
-        let currentQuestionIndex = 0;
-        let userAnswers = new Array(questions.length);
-        const questionElement = document.querySelector('.question');
-        const optionListElement = document.querySelector('.option-list');
-        const backBtn = document.querySelector('.back-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const currentQuestionElement = document.querySelector('.current-question');
-    
+    const questions = [
+        {
+            number: 1,
+            question: "In the play 'Romeo and Juliet,' what is Juliet's last name?",
+            answer: "a) Capulet",
+            options: ["a) Capulet", "b) Montague", "c) Verona", "d) Shakespeare"],
+        },
+        {
+            number: 2,
+            question: "What is the only planet in our solar system that rotates on its side?",
+            answer: "c) Uranus",
+            options: ['a) Mars', 'b) Venus', 'c) Uranus', 'd) Neptune'],
+        },
+        {
+            number: 3,
+            question: "Which artist holds the record for the most Grammy Awards won in a single night?",
+            answer: "d) Michael Jackson",
+            options: ['a) Beyoncé', 'b) Adele', 'c) Taylor Swift', 'd) Michael Jackson'],
+        },
+        {
+            number: 4,
+            question: "Who was the first female prime minister of the United Kingdom?",
+            answer: "a) Margaret Thatcher",
+            options: ['a) Margaret Thatcher', 'b) Theresa May', 'c) Angela Merkel', 'd) Queen Elizabeth II'],
+        },
+        {
+            number: 5,
+            question: "What was the first ever commercially available computer processor?",
+            answer: "a) Intel 4004",
+            options: ['a) Intel 4004', 'b) AMD Ryzen', 'c) Apple M1', 'd) IBM POWER9'],
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = new Array(questions.length);
+    const questionElement = document.querySelector('.question');
+    const optionListElement = document.querySelector('.option-list');
+    const backBtn = document.querySelector('.back-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const currentQuestionElement = document.querySelector('.current-question');
+
+    if (questionElement && optionListElement && backBtn && nextBtn && currentQuestionElement) {
         function showQuestion(index) {
             const question = questions[index];
             questionElement.textContent = question.question;
@@ -159,6 +156,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     
         showQuestion(currentQuestionIndex);
-    
-    });
-    
+    }
+});
