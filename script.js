@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('convert-btn');
     const contactModal = document.getElementById('contactModal');
-    const overlay = document.getElementById('overlay');
-
+    
     if (startButton && contactModal) {
         startButton.addEventListener('click', () => {
             contactModal.style.display = 'flex';
             contactModal.style.justifyContent = 'center';
             contactModal.style.alignItems = 'center';
         });
-
+    
         window.addEventListener('click', (event) => {
             if (event.target === contactModal) {
                 contactModal.style.display = 'none';
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = document.getElementById('name')?.value;
         const email = document.getElementById('email')?.value;
         const number = document.getElementById('phone')?.value;
-
+    
         if (name === '' || email === '' || number === '') {
             alert("Please fill all the fields");
             return false;
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Please enter a valid name");
             return false;
         }
-
+    
         return true;
     }
 
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
+    
     const questions = [
         {
             number: 1,
@@ -87,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.querySelector('.back-btn');
     const nextBtn = document.querySelector('.next-btn');
     const currentQuestionElement = document.querySelector('.current-question');
-    const resultBox = document.getElementById('result-box-hidden');
 
     if (questionElement && optionListElement && backBtn && nextBtn && currentQuestionElement) {
         function showQuestion(index) {
@@ -99,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>${option}</span>
                 </div>
             `).join('');
-
+    
             const savedAnswer = userAnswers[index];
             if (savedAnswer) {
                 const optionInputs = document.querySelectorAll('input[name="option"]');
@@ -109,19 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }
-
+    
             currentQuestionElement.textContent = `Question ${index + 1}/${questions.length}`;
             backBtn.disabled = index === 0;
             nextBtn.textContent = index === questions.length - 1 ? 'Submit' : 'Next';
         }
-
+    
         function saveAnswer() {
             const selectedOption = document.querySelector('input[name="option"]:checked');
             if (selectedOption) {
                 userAnswers[currentQuestionIndex] = selectedOption.value;
             }
         }
-
+    
         function calculateScore() {
             let score = 0;
             for (let i = 0; i < questions.length; i++) {
@@ -131,33 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return score;
         }
-
+    
         function showResult() {
             const score = calculateScore();
-            const percentage = Math.round((score / questions.length) * 100);
-            resultBox.querySelector('.progress-value').textContent = `${percentage}%`;
-            resultBox.querySelector('.score-text').textContent = `Your Score ${score}/${questions.length}`;
-
-            const circularProgress = resultBox.querySelector('.circular-progress');
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress++;
-                circularProgress.style.background = `conic-gradient(#97FEED ${progress * 3.6}deg, #fff ${progress * 3.6}deg)`;
-                if (progress >= percentage) {
-                    clearInterval(interval);
-                }
-            }, 20);
-
-            resultBox.classList.remove('hidden');
-            overlay.style.display = 'block'; // Show overlay
+            document.body.innerHTML = `
+                <div class="quiz-container">
+                    <h1>Your Score: ${score}/${questions.length}</h1>
+                </div>
+            `;
         }
-
+    
         backBtn.addEventListener('click', () => {
             saveAnswer();
             currentQuestionIndex--;
             showQuestion(currentQuestionIndex);
         });
-
+    
         nextBtn.addEventListener('click', () => {
             saveAnswer();
             if (currentQuestionIndex < questions.length - 1) {
@@ -167,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showResult();
             }
         });
-
+    
         showQuestion(currentQuestionIndex);
     }
 });
