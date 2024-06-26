@@ -326,10 +326,10 @@ iframe
 
 .quiz-box h1
 {
-    font-size: 32px;
+    font-size: 42px;
     text-align: center;
-    background: linear-gradient(45deg,transparent,#071952,transparent);
-    color:#fff;
+    text-shadow: 3px 3px var(--second-text-color);
+    color:var(--text-color);
     border-radius: 5px;
 }
 
@@ -376,6 +376,7 @@ iframe
     margin-top: 1rem;
     display: flex;
     width: 100%;
+    margin-bottom: 3rem;
 }
 
 .bottom button
@@ -521,4 +522,68 @@ iframe
 span .progress-value
 {
     color: var(--text-color)
+}
+
+.option-list .option {
+    width: 95%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #071952;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+.option-list .option:hover {
+    background: #071952;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #E8FFCE;
+    transform: translateY(-3px);
+}
+
+.option.correct {
+    border-color: green;
+    background-color: rgb(194, 245, 192,0.35);
+}
+
+.option.incorrect {
+    border-color: red;
+    background-color:rgba(245, 172, 172, 0.35);
+}
+
+
+@media (max-width:480px)
+{
+    h1
+    {
+        font-size:32px;
+    }
+
+    h2
+    {
+        font-size: 16px;
+    }
+
+    .quiz-box
+    {
+        padding:0.6rem 1.7rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .option-list .option {
+        width: 90%;
+    }
+
+    .footer-box
+    {
+        margin-bottom: rem;
+    }
+
+    .footer
+    {
+        width: 95%;
+    }
 }
